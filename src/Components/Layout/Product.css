@@ -1,0 +1,20 @@
+.card-item {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* border: 1px solid green; */
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+.addToCart button{
+    cursor: pointer;
+    background-color: rgb(53, 103, 176);
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    border-color: white;
+}

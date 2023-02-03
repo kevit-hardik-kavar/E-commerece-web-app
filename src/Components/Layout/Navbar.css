@@ -1,0 +1,50 @@
+.navigation{
+    display: flex;
+    background-color: rgb(42, 155, 220);
+    position: sticky;
+    top: 0;
+}
+.company-logo{
+    height: 60px;
+    width: 10%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    cursor: pointer;
+}
+.navbar {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 150px;
+    color: white;
+}
+.navbar input {
+    padding: 10px;
+    width: 40%;
+}
+.navbar button {
+    padding: 10px;
+    width: 10%;
+    background-color: rgb(42, 155, 220);
+    color: white;
+    border:none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+.navbar button:hover {
+    background-color: rgb(34, 62, 138);
+    border-radius: 20px;
+    letter-spacing: 1px;
+    width: 120px;
+}
+.fa-lg {
+    margin: 0px 5px;
+}
+.navbar p {
+    font-size: 1rem;
+    font-weight: 700;
+}
