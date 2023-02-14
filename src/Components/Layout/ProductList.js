@@ -2,33 +2,44 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ProductList.css";
 import Product from "./Product";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+// import InfiniteScroll from "react-infinite-scroll-component";
 
-const PAGE_NUMBER = 1;
 const ProductList = () => {
-  
+
   const [products, setProducts] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
-  const [page , setPage] = useState(PAGE_NUMBER)
+  const [limit, setLimit] = useState(4)
+  const [spinner, setSpinner] = useState(true)
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setProducts(res.data);
+    axios.get(`https://fakestoreapi.com/products?limit=${limit}`).then((res) => {
+      setProducts((prev) => [...prev,...res.data]);
       setFilteredProduct(res.data);
+      setTimeout(() => {
+        setSpinner(false)
+      }, 1200)
     });
-  }, [page]);
+  }, [limit]);
+  const handleScroll = async () => {
+      // console.log("scrollHeight",document.documentElement.scrollHeight);
+      // console.log("innerHeight",window.innerHeight);
+      // console.log("scrollTop" ,document.documentElement.scrollTop);
+    
+        if(document.documentElement.scrollTop + window.innerHeight + 1 >= document.documentElement.scrollHeight ){
+            setLimit((prev) => prev + 5)
+        }
+      
+      
+  }
+  useEffect(()=> {
+    window.addEventListener("scroll",handleScroll)
+  },[]) 
   const filterProduct = (filterType) => {
     setFilteredProduct(products.filter((e) => e.category === filterType));
   };
-  const scrollToEnd = () => {
-    setPage(page + 1)
-  }
-  window.onscroll = function () {
-    if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
-      scrollToEnd()
-    }
-  }
  
-
   return (
     <div className="product-view">
       <div className="category">
@@ -39,29 +50,50 @@ const ProductList = () => {
         <button onClick={() => { filterProduct("jewelery"); }}> Jewelery</button>
         <button onClick={() => { filterProduct("electronics"); }}>Electronics </button>
       </div>
+      {spinner ? <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open>
+        <CircularProgress color="inherit" />
+      </Backdrop> :
       <div className="card-items">
-        {filteredProduct.map((product) => {
-          return (<Product key={product.id}
-            title={product.title}
-            id={product.id}
-            imgUrl={product.image}
-            price={product.price} />)
-        })}
-        {filteredProduct.map((product) => {
-          return (<Product key={product.id}
-            title={product.title}
-            id={product.id}
-            imgUrl={product.image}
-            price={product.price} />)
-        })}
-        {filteredProduct.map((product) => {
-          return (<Product key={product.id}
-            title={product.title}
-            id={product.id}
-            imgUrl={product.image}
-            price={product.price} />)
-        })}
-      </div>
+            {filteredProduct.map((product) => {
+              return (<Product key={product.id}
+                title={product.title}
+                id={product.id}
+                imgUrl={product.image}
+                price={product.price} />)
+            })}
+            {filteredProduct.map((product) => {
+              return (<Product key={product.id}
+                title={product.title}
+                id={product.id}
+                imgUrl={product.image}
+                price={product.price} />)
+            })}
+            {filteredProduct.map((product) => {
+              return (<Product key={product.id}
+                title={product.title}
+                id={product.id}
+                imgUrl={product.image}
+                price={product.price} />)
+            })}
+             {filteredProduct.map((product) => {
+              return (<Product key={product.id}
+                title={product.title}
+                id={product.id}
+                imgUrl={product.image}
+                price={product.price} />)
+            })}
+             {filteredProduct.map((product) => {
+              return (<Product key={product.id}
+                title={product.title}
+                id={product.id}
+                imgUrl={product.image}
+                price={product.price} />)
+            })}
+        
+          </div>}
+       
     </div>);
 };
 

@@ -14,7 +14,7 @@ const Auth = () => {
   // const { register,submitHandler,error} = useForm()
   const dispatch = useDispatch();
   const [display, setDisplay] = useState(false)
-  const username = ""
+  const [username,setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   console.log(username);
