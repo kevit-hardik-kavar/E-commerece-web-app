@@ -6,15 +6,20 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    /* border: 1px solid green; */
     margin-bottom: 50px;
     box-sizing: border-box;
+    color: black;
 }
 .addToCart button{
     cursor: pointer;
-    background-color: rgb(53, 103, 176);
+    width: 100px;
+    background-color: #2a9bdc;
     padding: 6px;
     border-radius: 5px;
     color: white;
-    border-color: white;
+    border: none;
+}
+.card-item img {
+    mix-blend-mode: multiply;
+    z-index: -1;
 }

@@ -1,19 +1,36 @@
-.card-items {
+.product-view {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 20px;
-    margin-left: 130px;
+    margin-top: 30px;
+
 }
+.category {
+    width: 20%;
+    position: fixed;
+    /* top: 50; */
+    right: 0;
+    color: #0a7cbe;
+    
+
+}
+.card-items {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    /* grid-gap: 10px; */
+}
+
 .category button {
     padding: 10px;
-    margin: 10px;
-    background-color: rgb(34, 214, 214);
+    margin: 5px;
+    width: 80%;
+    color: white;
+    background-color: #2a9bdc;
     border-radius: 10px;
     cursor: pointer;
+    border: none;
 }
 .category button:hover {
-    background-color: rgb(24, 127, 162);
+    background-color: #5e879f;
     color: white;
     font-size: 14px;
     font-weight: 600;

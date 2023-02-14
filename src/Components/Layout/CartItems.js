@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { cartActions } from '../store/cartSlice'
 import CartItem from './CartItem'
 import './CartItems.css'
 
@@ -8,6 +10,7 @@ import './CartItems.css'
 const CartItems = () => {
   const cartItems = useSelector(state => state.cart.itemsList)
   const itemsList = useSelector(state => state.cart.itemsList)
+  const dispatch = useDispatch()
   const [greet, setGreet] = useState(false)
 
 
@@ -20,20 +23,19 @@ const CartItems = () => {
   let n = totalAmount.toFixed(2)
   const handlePlaceOrder = () => {
     if(itemsList.length < 1){
-      alert("Please add something to place order")
+      alert("Please add something in cart to place order")
     }else{
       setGreet(true)
     }
   }
   const handleShopping = () => {
-    window.location.reload()
+    dispatch(cartActions.setQuantityZero())
   }
   return (
     <div>
-
-
       {!greet && <div className='cartItems'>
         <h2>Your Cart</h2>
+        {cartItems.length === 0 && <h2 style={{margin:"0px"}}>Oops !! Your Cart is Empty </h2>}
 
         <ul>
           {
@@ -48,9 +50,11 @@ const CartItems = () => {
           }
         </ul>
         <div className="total">
-          <h1>Total :${n} </h1>
-          <button onClick={handlePlaceOrder}>Place Order</button>
-          <button onClick={handleShopping}>Go to Shopping</button>
+          {cartItems.length>=1 && <h1 style={{margin:"0px"}}>Total :${n} </h1>}
+          <button  onClick={handlePlaceOrder}>Place Order</button>
+          <Link to="/products">
+          <button>Go to Shopping</button>
+          </Link>
 
         </div>
       </div> }
@@ -58,7 +62,9 @@ const CartItems = () => {
       {greet && <div className="greeting">
         <h1>Congratulations</h1>
         <h2>Your Order has been placed sucessfully !</h2>
-        <button onClick={handleShopping}>Go to Shopping</button>
+        <Link to="/">
+        <button onClick={handleShopping}>Back to Home</button>
+        </Link>
       </div>
       }
     </div>
