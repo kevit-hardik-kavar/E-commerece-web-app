@@ -1,0 +1,28 @@
+.product-detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-section{
+    flex: 4;
+    padding: 50px;
+    box-sizing: border-box;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.right-section{
+    flex: 4;
+    padding: 50px;
+}
+.left-section button {
+    width: 150px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color:#2a9bdc;
+    border: none;
+    border-radius: 10px;
+}
+.right-section img {
+    mix-blend-mode: multiply;
+}

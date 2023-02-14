@@ -3,17 +3,25 @@ import Navbar from "./Navbar";
 import ProductList from "./ProductList";
 import Header from "./Header";
 import CartItems from "./CartItems";
-import { useSelector } from "react-redux";
+import {  Routes , Route } from "react-router-dom";
+import ProductDetail from "./ProductDetail";
+import UserDetail from "./UserDetail";
 
 
 const Layout = () => {
-  const showCart = useSelector(state=> state.cart.showCart)
+
   return (
     <div>
       <Navbar />
-     {!showCart && <Header /> }
-      {showCart && <CartItems />}
-      {!showCart && <ProductList />}
+      <Routes>
+      <Route path="/" element= {<Header />} />
+      <Route path="/cart" element={<CartItems/>} />
+      <Route path="/products" element={<ProductList />} />
+      <Route path="/product/:id" element={<ProductDetail />}/>
+      <Route path="/userDetail" element={<UserDetail />} />
+      
+      </Routes>
+
 
     </div>
   );

@@ -4,6 +4,7 @@ import Logo from "./Kevit White Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store/authSlice"
 import { cartActions } from '../store/cartSlice'
+import { Link } from "react-router-dom"
 
 
 
@@ -14,30 +15,45 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const showCart = () => {
     dispatch(cartActions.setShowCart())
-    
+
   }
 
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(authActions.logout());
+    // localStorage.setItem("email","")
+    // localStorage.setItem("username","")
+    // localStorage.setItem("password","")
   };
+
 
   return (
     <div className="navigation">
       <div className="company-logo">
-        <img src={Logo} alt="" width="50px" />
+        <Link to="/">
+          <img src={Logo} alt="" width="50px" />
+        </Link>
       </div>
       <div className="navbar">
         <input type="text" placeholder="Search Here..." />
-        <button onClick={showCart}>
-          <span>
-            <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
-          </span>
-          <span>{quantity} </span>
-          <span>{quantity <= 1 ? "Item" : "Items"}</span>
-        </button>
-        <p>Welcome username</p>
-        <button onClick={handleLogout}>Logout</button>
+        <div className="product">
+          <Link to="/products">
+            <p>Products</p>
+          </Link>
+        </div>
+        <Link to='/cart' >
+          <button onClick={showCart}>
+            <span>
+              <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+            </span>
+            <span>{quantity}</span>
+            <span>{quantity <= 1 ? "Item" : "Items"}</span>
+          </button>
+        </Link>
+        <Link to="/userDetail" >
+          <span><i className="fa fa-user-circle fa-2x" ></i></span>
+        </Link>
+        <Link to="/"><button onClick={handleLogout}>Logout</button></Link>
       </div>
     </div>
   );

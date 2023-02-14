@@ -2,7 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: { isLoggedIn: false },
+  initialState: { 
+    isLoggedIn: false,
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:"",
+    MobileNumber:"",
+
+   },
+ 
   reducers: {
     login(state) {
       state.isLoggedIn = true;
@@ -13,6 +22,10 @@ const authSlice = createSlice({
       localStorage.removeItem("isLoggedIn")
       window.location.reload()
     },
+    signUp(state){
+      state.isLoggedIn = true;
+      
+    }
   },
 });
 

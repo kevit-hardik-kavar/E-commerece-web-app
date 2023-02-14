@@ -36,15 +36,17 @@ const cartSlice = createSlice({
 
             if (existingItem.quantity === 1) {
                 state.itemsList = state.itemsList.filter(item => item.id !== id)
-            }else {
+            } else {
                 existingItem.quantity--;
                 existingItem.totalPrice = Math.round(existingItem.totalPrice - existingItem.price)
             }
             state.totalQuantity--;
         },
-        setShowCart(state) {
-            state.showCart = !state.showCart
-        }
+
+        setQuantityZero(state) {
+            state.totalQuantity = 0;
+        },
+
     },
 
 })

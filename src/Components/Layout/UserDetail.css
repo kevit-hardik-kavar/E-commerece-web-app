@@ -1,0 +1,66 @@
+.user-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 50vw;
+    margin: 0px auto;
+    background-color: rgb(36, 122, 208);
+    color: white;
+    box-sizing: border-box;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    overflow: hidden;
+
+}
+.user-details {
+    margin-top: 20px;
+    font-family: monospace;
+}
+.user-detail button {
+    background-color: rgb(36, 122, 208);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.user-detail h3,p{
+    font-size: 20px;
+}
+.pop-up {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+   border: 1px solid black;
+   border-radius: 10px;
+   width: 30vw;
+   margin: 200px auto;
+   position: absolute;
+   left: 450px;
+   top: 0px;
+   background-color: rgb(203, 217, 217);
+   padding: 24px;
+
+}
+.pop-up label {
+    font-size: 20px;
+    text-align: left;
+}
+.pop-up input{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.pop-up input:focus {
+    outline: none;
+}
+.pop-up button {
+    display: block;
+    background-color: cornflowerblue;
+    padding: 8px;
+    width: 80px;
+    border: none;
+    color: white;
+    font-weight: 500;
+}

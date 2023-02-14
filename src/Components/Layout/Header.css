@@ -1,0 +1,15 @@
+.header {
+    background-image: url(/src/Components/Layout/bgImage.jpg);
+    background-size: cover;
+}
+.header h1 {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header-text {
+    padding: 200px;
+    color: white;
+    font-family: sans-serif;
+}
