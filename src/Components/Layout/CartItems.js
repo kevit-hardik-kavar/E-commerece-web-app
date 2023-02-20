@@ -27,6 +27,9 @@ const CartItems = () => {
     } else {
       setGreet(true)
       dispatch(cartActions.setQuantityZero())
+      dispatch(cartActions.setItemListEmpty())
+
+     
     }
   }
   // const handleShopping = () => {
@@ -38,7 +41,7 @@ const CartItems = () => {
         <h2>Your Cart</h2>
         {cartItems.length === 0 && <h2 style={{ margin: "0px" }}>Oops !! Your Cart is Empty </h2>}
 
-        <ul>
+        <div>
           {
             cartItems.map((item) => (
               <CartItem
@@ -49,7 +52,7 @@ const CartItems = () => {
                 total={item.totalPrice} />
             ))
           }
-        </ul>
+        </div>
         <div className="total">
           {cartItems.length >= 1 && <h1 style={{ margin: "0px" }}>Total :${n} </h1>}
           <button onClick={handlePlaceOrder}>Place Order</button>
@@ -63,7 +66,7 @@ const CartItems = () => {
       {greet && <div className='checkout-page'> <div className="greeting">
         <h1>Congratulations</h1>
         <h2>Your Order has been placed sucessfully !</h2>
-        {
+        {/* {
           cartItems.map((item) => (
             <CartItem
               id={item.id}
@@ -71,8 +74,8 @@ const CartItems = () => {
               title={item.title}
               price={item.price}
               total={item.totalPrice} />
-          ))
-        }<h2>Total : ${n}</h2>
+          ))} */}
+        {/* <h2>Total : ${n}</h2> */}
       </div>
         <div className="home">
           <Link to="/">
