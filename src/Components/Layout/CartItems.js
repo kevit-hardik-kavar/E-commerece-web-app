@@ -78,7 +78,7 @@ const CartItems = () => {
         {/* <h2>Total : ${n}</h2> */}
       </div>
         <div className="home">
-          <Link to="/">
+          <Link to="/header">
             <button>Back to Home</button>
           </Link>
         </div>
