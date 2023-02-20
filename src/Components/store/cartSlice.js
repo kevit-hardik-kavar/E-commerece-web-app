@@ -46,6 +46,10 @@ const cartSlice = createSlice({
         setQuantityZero(state) {
             state.totalQuantity = 0;
         },
+        setItemListEmpty(state) {
+            state.itemsList = []
+
+        }
 
     },
 

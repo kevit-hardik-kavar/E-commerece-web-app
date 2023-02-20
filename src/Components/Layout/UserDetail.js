@@ -22,18 +22,21 @@ const UserDetail = () => {
         setPass(true)
     }
     const updateUser = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         localStorage.setItem("username", userUpdate.current.value)
-        setUser(false)
+        if("username".length >= 4){
+
+            setUser(false)
+        }
 
     }
     const updateEmail = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         localStorage.setItem("email", emailUpdate.current.value)
         setEmail(false)
     }
     const updatePassword = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         localStorage.setItem("password", passUpdate.current.value)
         setPass(false)
     }

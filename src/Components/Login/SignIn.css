@@ -1,0 +1,49 @@
+.form-controls{
+    background-color: cornflowerblue;
+    width: 20vw;
+    padding: 24px;
+    height: 30%;
+    margin: 140px auto;
+    border-radius: 20px;
+    box-shadow :rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+
+}
+.form-controls label {
+    display: block;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+}
+.form-controls input {
+    padding: 5px;
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: none;
+}
+.signup-btn {
+    background-color:cornflowerblue;
+    border: none;
+    text-decoration: underline;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+
+}
+.submit-btn {
+    background-color: white;
+    border-radius: 10px;
+    padding: 7px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.form-controls p {
+    color: white;
+}
+input:focus {
+    outline: none;
+}
